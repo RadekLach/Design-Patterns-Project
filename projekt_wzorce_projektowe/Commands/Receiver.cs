@@ -14,9 +14,9 @@ namespace projekt_wzorce_projektowe.Commands
         private FileAccessor _fileAccessor;
         //logika biznesowa
 
-        public Receiver(FileAccessor fileAccessor)
+        public Receiver()
         {
-            _fileAccessor = fileAccessor;
+            _fileAccessor = new FileAccessor();
             expenses = _fileAccessor.Read();
         }
         public Expense AddExpense(Expense ex)

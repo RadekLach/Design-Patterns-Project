@@ -45,7 +45,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="projekt_wzorce_projektowe.Models.ReportEntries">
-    <Position X="2.5" Y="7.25" Width="1.5" />
+    <Position X="3" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ReportEntries.cs</FileName>
@@ -63,20 +63,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\XmlYearlyReport.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="projekt_wzorce_projektowe.Controllers.ExpenseController">
-    <Position X="15.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAQAAAAAAAAAAABAAAAAAAAACAEAAABAAIAAAAAAAAA=</HashCode>
-      <FileName>Controllers\ExpenseController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="projekt_wzorce_projektowe.Controllers.ReportController">
-    <Position X="17.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BABAAAAEAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAg=</HashCode>
-      <FileName>Controllers\ReportController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="projekt_wzorce_projektowe.Reports.ReportFactory">
@@ -177,6 +163,27 @@
       <FileName>FileAccess\FileAccessor.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="projekt_wzorce_projektowe.Controllers.ExpenseController">
+    <Position X="14.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAACAEAAAAAAIAABAAAAAA=</HashCode>
+      <FileName>Controllers\ExpenseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="projekt_wzorce_projektowe.Controllers.Facade">
+    <Position X="18.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAAAAEAAAIAAAAIBEAAAAIAAAAAABAAAAgAAAAAAA=</HashCode>
+      <FileName>Controllers\Facade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="projekt_wzorce_projektowe.Controllers.ReportController">
+    <Position X="16.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAg=</HashCode>
+      <FileName>Controllers\ReportController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="projekt_wzorce_projektowe.Models.IReport">
     <Position X="2.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
@@ -199,7 +206,7 @@
     </TypeIdentifier>
   </Interface>
   <Enum Name="projekt_wzorce_projektowe.Commands.ReportSerializationType">
-    <Position X="4.25" Y="7.25" Width="1.5" />
+    <Position X="4.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Commands\IReportCommand.cs</FileName>

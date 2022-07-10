@@ -13,49 +13,37 @@ namespace projekt_wzorce_projektowe.Controllers
     [ApiController]
     public class ExpenseController : ControllerBase
     {
-        private Receiver _receiver;
-        private Invoker _invoker;
-        public ExpenseController(Receiver receiver, Invoker  invoker)
+        private Facade _facade;
+        public ExpenseController(Facade facade)
         {
-            _receiver = receiver;
-            _invoker = invoker;
+            _facade = facade;
         }
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-           var command = new GetExpenseCommand(_receiver,id);
-           _invoker.Command = command;
-           return Ok(_invoker.ExecuteCommand()); //zwróć status http
+           return Ok(_facade.GetExpense(id)); //zwróć status http
         }
         [HttpPost]
         public IActionResult Post([FromBody]Expense ex) // FromBody - pobranie z ciala zadania
         {
-            var command = new AddExpenseCommand(_receiver,ex);
-            _invoker.Command = command;
-            return Ok(_invoker.ExecuteCommand()); //zwróć status http
+            return Ok(_facade.AddExpense(ex)); //zwróć status http
         }
         [HttpPut]
         public IActionResult Update([FromBody] Expense ex) // FromBody - pobranie z ciala zadania
         {
-            var command = new UpdateExpenseCommand(_receiver, ex);
-            _invoker.Command = command;
-            return Ok(_invoker.ExecuteCommand()); //zwróć status http
+            return Ok(_facade.EditExpense(ex)); //zwróć status http
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            var command = new DeleteExpenseCommand(_receiver, id);
-            _invoker.Command = command;
-            return Ok(_invoker.ExecuteCommand()); //zwróć status http
+            return Ok(_facade.RemoveExpense(id)); //zwróć status http
         }
 
         [HttpGet("all")]
         public IActionResult All()
         {
-            var command = new GetManyExpensesCommand(_receiver);
-            _invoker.Command = command;
-            return Ok(_invoker.ExecuteCommand()); //zwróć status http
+            return Ok(_facade.ShowAllExpenses()); //zwróć status http
         }
     }
 }

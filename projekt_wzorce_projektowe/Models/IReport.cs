@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace projekt_wzorce_projektowe.Models
 {
-    public interface IReport //Product factory method
+    public interface IReport //interfejs wspolny dla wszystkich produktow abstract factory
     {
         string GetReport();
 

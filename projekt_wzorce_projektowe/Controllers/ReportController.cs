@@ -16,56 +16,42 @@ namespace projekt_wzorce_projektowe.Controllers
     public class ReportController : ControllerBase
     {
 
-        private Receiver _receiver;
-        private Invoker _invoker;
-        public ReportController(Receiver receiver, Invoker invoker)
+        private Facade _facade;
+        public ReportController(Facade facade)
         {
-            _receiver = receiver;
-            _invoker = invoker;
+            _facade = facade;
         }
 
         [HttpGet("yearly/{type}")]
         public IActionResult GetYearly(string type)
         {
-            IReportCommand command;
+            string result;
             try
             {
-                var serializationType = CheckType(type);
-                command = new YearlyReportCommand(_receiver, serializationType);
-                _invoker.ReportCommand = command;
+                result = _facade.GetYearlyReport(type);
             }
             catch (ArgumentException)
             {
                 return BadRequest();
             }
-            return Ok(_invoker.ExecuteReportCommand());
+            return Ok(result);
         }
 
-        private ReportSerializationType CheckType(string type)
-        {
-            return type switch
-            {
-                "json" => ReportSerializationType.Json,
-                "xml" => ReportSerializationType.Xml,
-                _ => throw new ArgumentException("Invalid serialization type")
-            };
-        }
+
 
         [HttpGet("monthly/{type}")]
         public IActionResult GetMonthly(string type)
         {
-            IReportCommand command;
+            string result;
             try
             {
-                var serializationType = CheckType(type);
-                command = new MonthlyReportCommand(_receiver, serializationType);
-                _invoker.ReportCommand = command;
+                result = _facade.GetMonthlyReport(type);
             }
             catch (ArgumentException)
             {
                 return BadRequest();
             }
-            return Ok(_invoker.ExecuteReportCommand());
+            return Ok(result);
         }
 
     }

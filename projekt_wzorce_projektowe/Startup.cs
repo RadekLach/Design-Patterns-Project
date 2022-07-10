@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using projekt_wzorce_projektowe.Commands;
+using projekt_wzorce_projektowe.Controllers;
 using projekt_wzorce_projektowe.FileAccess;
 using projekt_wzorce_projektowe.Reports;
 using System;
@@ -27,6 +28,7 @@ namespace projekt_wzorce_projektowe
 
         private void CreateFactories()
         {
+
             XmlReportFactory.CreateFactory(); //tworzenie fabryk
             JsonReportFactory.CreateFactory();
         }
@@ -34,9 +36,7 @@ namespace projekt_wzorce_projektowe
         public void ConfigureServices(IServiceCollection services)
         {
             CreateFactories();
-            services.AddSingleton<Invoker>();
-            services.AddSingleton<Receiver>(); //jeden receiver
-            services.AddSingleton<FileAccessor>(); //jeden fileaccesor
+            services.AddSingleton<Facade>();
             services.AddControllers();
         }
 
