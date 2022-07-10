@@ -8,9 +8,18 @@ namespace projekt_wzorce_projektowe.Commands
 {
     public class YearlyReportCommand : IReportCommand
     {
-        public IActionResult Execute()
+        private Receiver _receiver;
+        private ReportSerializationType _type;
+
+        public YearlyReportCommand(Receiver receiver, ReportSerializationType type)
         {
-            throw new NotImplementedException();
+            _receiver = receiver;
+            _type = type;
+        }
+
+        public string Execute()
+        {
+            return _receiver.GetYearlyReport(_type);
         }
     }
 }

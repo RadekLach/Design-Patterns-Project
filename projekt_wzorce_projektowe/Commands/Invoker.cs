@@ -9,9 +9,15 @@ namespace projekt_wzorce_projektowe.Commands
     public class Invoker 
     {
         public IExpenseCommand Command { get; set; }
-        public object ExecuteCommand() //do zwracania odpowiedzi ICommand / API
+        public IReportCommand ReportCommand { get; set; }
+        public object ExecuteCommand() //do zwracania odpowiedzi IExpenseCommand / API
         {
             return Command.Execute();
         }
+        public string ExecuteReportCommand() //do zwracania odpowiedzi IReportCommand / API
+        {
+            return ReportCommand.Execute();
+        }
+
     }
 }

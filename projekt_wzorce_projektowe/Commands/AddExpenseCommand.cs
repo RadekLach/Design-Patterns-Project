@@ -16,7 +16,7 @@ namespace projekt_wzorce_projektowe.Commands
             _receiver = receiver;
             _expense = expense;
         }
-        public Expense Execute()
+        public object Execute()
         {
             return _receiver.AddExpense(_expense);
         }

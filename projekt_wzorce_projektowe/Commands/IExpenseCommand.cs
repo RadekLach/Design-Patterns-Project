@@ -9,6 +9,6 @@ namespace projekt_wzorce_projektowe.Commands
 {
     public interface IExpenseCommand 
     {
-        Expense Execute();
+        object Execute();
     }
 }

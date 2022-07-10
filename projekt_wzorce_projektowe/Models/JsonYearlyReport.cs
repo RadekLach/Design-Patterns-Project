@@ -15,7 +15,12 @@ namespace projekt_wzorce_projektowe.Models
         }
         public override string GetReport()
         {
-            return JsonSerializer.Serialize(_reportContent); 
+            BuildReport();
+            var report = new ReportEntries
+            {
+                Entries = _reportContent.Select(x => new Entry { Date = x.Key, Sum = x.Value }).ToArray()
+            };
+            return JsonSerializer.Serialize(report);
         }
     }
 }

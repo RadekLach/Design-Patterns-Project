@@ -16,7 +16,7 @@ namespace projekt_wzorce_projektowe.Commands
             _receiver = receiver;
             _id = id;
         }
-        public Expense Execute()
+        public object Execute()
         {
             return _receiver.DeleteExpense(_id);
         }

@@ -1,5 +1,6 @@
 ﻿using projekt_wzorce_projektowe.FileAccess;
 using projekt_wzorce_projektowe.Models;
+using projekt_wzorce_projektowe.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,22 @@ namespace projekt_wzorce_projektowe.Commands
             }
             Save();
             return expenseToUpdate;
+        }
+
+        public string GetMonthlyReport(ReportSerializationType type)
+        {
+            var factory = ReportFactory.GetInstance(type);
+            return factory.GetMonthly(expenses);
+        }
+        public string GetYearlyReport(ReportSerializationType type)
+        {
+            var factory = ReportFactory.GetInstance(type);
+            return factory.GetYearly(expenses);
+        }
+        
+        public List <Expense> All()
+        {
+            return expenses.OrderBy(x=>x.Time).ToList();
         }
     }
 }

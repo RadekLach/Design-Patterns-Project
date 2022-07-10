@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace projekt_wzorce_projektowe.Models
 {
 
-    public class XmlReport
+    public class ReportEntries
     {
         public Entry[] Entries { get; set; }
     }

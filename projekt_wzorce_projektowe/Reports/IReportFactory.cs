@@ -1,4 +1,5 @@
-﻿using projekt_wzorce_projektowe.Models;
+﻿using projekt_wzorce_projektowe.Commands;
+using projekt_wzorce_projektowe.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,26 @@ namespace projekt_wzorce_projektowe.Reports
 {
     public abstract class ReportFactory //Creator factory method
     {
-        protected abstract IReport Monthly();
-        protected abstract IReport Yearly();
+        protected abstract IReport Monthly(List<Expense> list);
+        protected abstract IReport Yearly(List<Expense> list);
 
-        public string GetMonthly() // some operation
+        protected static Dictionary<ReportSerializationType, ReportFactory> _factories
+            = new Dictionary<ReportSerializationType, ReportFactory>(); //referencje do pojedynczych instacji singletonowych fabryk
+        public static ReportFactory GetInstance(ReportSerializationType type)
         {
-            var report = Monthly();
+            return _factories[type];
+        }
+
+
+        public string GetMonthly(List<Expense> list) // some operation
+        {
+            var report = Monthly(list);
             return report.GetReport();
         }
 
-        public string GetYearly() // some operation
+        public string GetYearly(List<Expense> list) // some operation
         {
-            var report = Yearly();
+            var report = Yearly(list);
             return report.GetReport();
         }
 

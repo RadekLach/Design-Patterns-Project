@@ -15,12 +15,13 @@ namespace projekt_wzorce_projektowe.Models
         }
         public override string GetReport()
         {
-            var report = new XmlReport
+            BuildReport();
+            var report = new ReportEntries
             {
                 Entries = _reportContent.Select(x => new Entry { Date = x.Key, Sum = x.Value }).ToArray()
             };
             var Writer = new StringWriter();
-            var serializer = new XmlSerializer(typeof(XmlReport));
+            var serializer = new XmlSerializer(typeof(ReportEntries));
             serializer.Serialize(Writer, report);
             return Writer.ToString();
         }

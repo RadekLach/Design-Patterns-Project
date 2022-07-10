@@ -14,7 +14,7 @@ namespace projekt_wzorce_projektowe.Models
         {
             _expenses = expenses;
         }
-        private void BuildReport() // wewnetrzna logika produktu (tworzenia raportu)
+        protected void BuildReport() // wewnetrzna logika produktu (tworzenia raportu)
         {
             _reportContent = _expenses.GroupBy(e => e.Time.ToString("yyyy-MM")) // pobranie wszystkich wydatkow i podzielenie ich na grupy ze wzgledu na rok
                 .ToDictionary(x => x.Key, x => x.Sum(e => e.Value)); // dla kazdej grupy zsumuj wydatki
