@@ -9,7 +9,7 @@ namespace projekt_wzorce_projektowe.Models
     {
         private List<Expense> _expenses;
         protected Dictionary<string, decimal> _reportContent;
-        public abstract string GetReport();
+        public abstract string GetSerializedContent();
         public AbstractMonthlyReport(List<Expense> expenses)
         {
             _expenses = expenses;

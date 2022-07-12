@@ -60,12 +60,14 @@ namespace projekt_wzorce_projektowe.Commands
         public string GetMonthlyReport(ReportSerializationType type)
         {
             var factory = ReportFactory.GetInstance(type);
-            return factory.GetMonthly(expenses);
+            var report =  factory.GetMonthly(expenses);
+            return report.GetSerializedContent();
         }
         public string GetYearlyReport(ReportSerializationType type)
         {
             var factory = ReportFactory.GetInstance(type);
-            return factory.GetYearly(expenses);
+            var report = factory.GetYearly(expenses);
+            return report.GetSerializedContent();
         }
         
         public List <Expense> All()

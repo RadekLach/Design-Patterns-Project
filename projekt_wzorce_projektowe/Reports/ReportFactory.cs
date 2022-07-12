@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace projekt_wzorce_projektowe.Reports
 {
-    public abstract class ReportFactory //Creator factory method
+    public abstract class ReportFactory //Abstract Factory
     {
         protected abstract IReport Monthly(List<Expense> list); //utworzenie raportów
         protected abstract IReport Yearly(List<Expense> list);
@@ -20,16 +20,14 @@ namespace projekt_wzorce_projektowe.Reports
         }
 
 
-        public string GetMonthly(List<Expense> list) // some operation
+        public IReport GetMonthly(List<Expense> list) // some operation
         {
-            var report = Monthly(list);
-            return report.GetReport();
+            return Monthly(list);
         }
 
-        public string GetYearly(List<Expense> list) // some operation
+        public IReport GetYearly(List<Expense> list) // some operation
         {
-            var report = Yearly(list);
-            return report.GetReport();
+            return Yearly(list);
         }
 
     }

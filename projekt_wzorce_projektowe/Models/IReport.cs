@@ -7,7 +7,7 @@ namespace projekt_wzorce_projektowe.Models
 {
     public interface IReport //interfejs wspolny dla wszystkich produktow abstract factory
     {
-        string GetReport();
+        string GetSerializedContent();
 
     }
 }

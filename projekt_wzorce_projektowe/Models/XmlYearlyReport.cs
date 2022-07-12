@@ -14,7 +14,7 @@ namespace projekt_wzorce_projektowe.Models
         {
 
         }
-        public override string GetReport()
+        public override string GetSerializedContent()
         {
             BuildReport();
             var report = new ReportEntries
